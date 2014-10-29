@@ -309,8 +309,9 @@ namespace FluentMigrator.Runner.Generators.Generic
             {
                 foreach (var item in expression.Where)
                 {
+                    string equalityOperator = (item.Value == null) ? "IS" : (expression.IsWhereIn ? "IN" : "=");
                     whereClauses.Add(string.Format("{0} {1} {2}", Quoter.QuoteColumnName(item.Key),
-                                                   item.Value == null ? "IS" : "=", Quoter.QuoteValue(item.Value)));
+                                                   equalityOperator, Quoter.QuoteValue(item.Value)));
                 }
             }
             return String.Format(UpdateData, Quoter.QuoteTableName(expression.TableName), String.Join(", ", updateItems.ToArray()), String.Join(" AND ", whereClauses.ToArray()));

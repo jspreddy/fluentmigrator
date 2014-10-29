@@ -30,6 +30,7 @@ namespace FluentMigrator.Expressions
         public List<KeyValuePair<string, object>> Set { get; set; }
         public List<KeyValuePair<string, object>> Where { get; set; }
         public bool IsAllRows { get; set; }
+        public bool IsWhereIn { get; set; }
 
         public override void CollectValidationErrors(ICollection<string> errors)
         {

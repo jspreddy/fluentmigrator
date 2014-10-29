@@ -52,6 +52,12 @@ namespace FluentMigrator.Builders.Update
             _expression.Where = GetData(dataAsAnonymousType);
         }
 
+        public void WhereIn(object dataAsAnonymousType)
+        {
+            _expression.Where = GetData(dataAsAnonymousType);
+            _expression.IsWhereIn = true;
+        }
+
         public void AllRows()
         {
             _expression.IsAllRows = true;

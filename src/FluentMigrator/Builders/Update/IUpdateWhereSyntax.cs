@@ -21,6 +21,7 @@ namespace FluentMigrator.Builders.Update
     public interface IUpdateWhereSyntax
     {
         void Where(object dataAsAnonymousType);
+        void WhereIn(object dataAsAnonymousType);
         void AllRows();
     }
 }
